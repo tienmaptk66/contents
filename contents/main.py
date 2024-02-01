@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 
-openai.api_key = "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"
+openai.api_key = "API Key"
 
 st.set_page_config(page_title="Tạo mô tả sản phẩm tự động", page_icon="📝")
 
