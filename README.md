@@ -3,60 +3,7 @@ B1: pip install openai
 B2: pip install -r setup.txt
 B3: streamlit run main.py
 B4: néo lỗi api add api key mới
-B5: Vẩn Lỗi add lại code
-import streamlit as st
-import openai
+B5: Vẩn Lỗi add lại code file 311.txt
 
-openai.api_key = "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"
 
-st.set_page_config(page_title="Tạo mô tả sản phẩm tự động", page_icon="📝")
-
-def generate_article(keyword, writing_style, word_count):
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "user", "content": f"Write a SEO optimized article about {keyword}"},
-                {"role": "user", "content": f"This article should be in style {writing_style}"},
-                {"role": "user", "content": f"The article length should be {word_count}"},
-            ]
-        )
-
-        result = ''
-        for choice in response['choices']:
-            result += choice['message']['content']
-
-        return result
-
-    except openai.error.OpenAIError as e:
-        st.error(f"OpenAI API error: {e}")
-        return None
-
-with st.sidebar:
-    st.title("Tạo mô tả sản phẩm tự động")
-    keyword = st.text_input("Nhập Từ Khóa")
-    industry_options = [
-        "Chính trị và Sự kiện Xã hội", "Kinh tế và Tài chính", "Y tế và Y học",
-        "Công nghệ và Điện tử", "Môi trường và Năng lượng", "Giáo dục", "Văn hóa và Nghệ thuật",
-        "Thể thao", "Du lịch và Lối sống", "Khoa học và Công nghệ", "An ninh và Quốc phòng"
-    ]
-    industry = st.selectbox("Ngành Hàng", industry_options)
-    writing_style_options = ["Bình hường", "Chuyên Nghiệp", "Vui Tươi", "Hài Hước", "Thuyết Phục"]
-    writing_style = st.selectbox("Chọn kiểu viết", writing_style_options)
-    other_request = st.text_input("Yêu cầu khác")
-    word_count = st.slider("Số Từ", min_value=300, max_value=2000, value=300)
-    submit_button = st.button("Áp dụng mô tả")
-    submit_button_another = st.button("Tạo Mô Tả Khác")
-
-if submit_button:
-    message = st.empty()
-    message.text("Đang tạo mô tả...")
-    article = generate_article(keyword, writing_style, word_count)
-
-    if article is not None:
-        message.text("")
-        st.write(article)
-        st.download_button(label="Tải xuống mô tả", data=article, file_name="mo_ta_san_pham.txt", mime="text/plain")
-    else:
-        st.error("Lỗi tạo mô tả. Vui lòng thử lại.")
-
+   
