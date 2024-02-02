@@ -35,7 +35,7 @@ with st.sidebar:
         "Thể thao", "Du lịch và Lối sống", "Khoa học và Công nghệ", "An ninh và Quốc phòng"
     ]
     industry = st.selectbox("Ngành Hàng", industry_options)
-    writing_style_options = ["Bình hường", "Chuyên Nghiệp", "Vui Tươi", "Hài Hước", "Thuyết Phục"]
+    writing_style_options = ["Bình thường", "Chuyên Nghiệp", "Vui Tươi", "Hài Hước", "Thuyết Phục"]
     writing_style = st.selectbox("Chọn kiểu viết", writing_style_options)
     other_request = st.text_input("Yêu cầu khác")
     word_count = st.slider("Số Từ", min_value=300, max_value=2000, value=300)
